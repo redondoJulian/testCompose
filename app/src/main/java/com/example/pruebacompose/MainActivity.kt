@@ -26,6 +26,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting() {
     Text(
-        text = "Prueas",
+        text = "Pruea",
     )
 }
