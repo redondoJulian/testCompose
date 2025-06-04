@@ -31,17 +31,18 @@ import androidx.compose.ui.text.font.FontWeight
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScaffoldLayout1(){
+    var contador by remember { mutableStateOf(0)}
     Scaffold(
         topBar = {
             TopAppBar(
-                title = {Text(text = "Prueba",
+                title = {Text(text = "Prueba: $contador",
                     fontSize = 30.sp,
                     fontWeight = FontWeight.Bold)},
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.LightGray))
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {},
+                onClick = {contador++},
                 contentColor = Color.Gray,
                 containerColor = Color.White,
                 shape = CircleShape)
@@ -53,56 +54,10 @@ fun ScaffoldLayout1(){
             .fillMaxSize()
             .background(color = Color.DarkGray)){
             Column(modifier = Modifier.padding(vertical = 15.dp)) {
-                Box(
-                    modifier = Modifier
-                        //.background(color = Color.Red)
-                        .fillMaxWidth()
-                        .padding(vertical = 5.dp, horizontal = 20.dp)
-                ) {
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text(
-                            text = "Julián",
-                            fontSize = 24.sp,
-                            color = Color.White,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "1160476411",
-                            fontSize = 18.sp,
-                            color = Color.LightGray,
-                            fontWeight = FontWeight.Light
-                        )
-                    }
-                }
-                Box(
-                    modifier = Modifier
-                        //.background(color = Color.Red)
-                        .fillMaxWidth()
-                        .padding(vertical = 5.dp, horizontal = 20.dp)
-                ) {
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text(
-                            text = "Jesica",
-                            fontSize = 24.sp,
-                            color = Color.White,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "1170866905",
-                            fontSize = 18.sp,
-                            color = Color.LightGray,
-                            fontWeight = FontWeight.Light
-                        )
-                    }
-                }
+                    ItemContact(name = "Julian", numberPhone = "1160476402")
+                    ItemContact(name = "Test", numberPhone = "1160476652")
+                    ItemContact(name = "Test2", numberPhone = "1160476452")
+                    ItemContact(name = "Test3", numberPhone = "1160476202")
             }
         }
     }
